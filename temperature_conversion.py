@@ -93,34 +93,29 @@ if __name__ == "__main__":
 
         selection = input("")
 
-    # Validate input
+    # Validate selection input
         if selection not in ["1", "2", "3"]:
             print(f"\n{RED}Please choose a valid option.{RESET}")
             continue
 
-        temp_unit = "Celsius"  if selection == "1" else "Fahrenheit"
-        converted_unit = "Fahrenheit" if selection == "1" else  "Celsius"
+    # Obtain temperatures from user
+        if selection == "1" or selection == "2":
+            temp_unit = "Celsius"  if selection == "1" else "Fahrenheit"
+            converted_unit = "Fahrenheit" if selection == "1" else  "Celsius"
 
-    # C to F
-        if selection == "1":
-            value = input(f"{YELLOW}Provide a Celsius temperature or a list of Celsius temperatures\n (lists should be comma separated)\n{RESET}")
-            result = celsius_to_fahrenheit(value)
+            value = input(f"{YELLOW}Provide a {temp_unit} temperature or a list of {temp_unit} temperatures\n (lists should be comma separated)\n{RESET}")
 
-    # F to C
-        elif selection == "2":
-            value = input(f"{YELLOW}Provide a Fahrenheit temperature or a list of Fahrenheit temperatures\n (lists should be comma separated)\n{RESET}")
-            result = fahrenheit_to_celsius(value)
-
-    # Quit
-        elif selection == "3":
-            print(f"{YELLOW}Goodbye{RESET}")
-            break
+    # Convert the temperatures or quit
+        result = celsius_to_fahrenheit(value) if selection == "1" else fahrenheit_to_celsius(value) if selection == "2" else f"{YELLOW}Goodbye{RESET}"
 
     # Return results
         if isinstance(result, (list, float)):
             print(f"\n{CYAN}{temp_unit}:{RESET}\n{value}\n{CYAN}{converted_unit}:{RESET}")
 
         print(result)
+
+        if selection == "3":
+            break
 
 
 #######################
