@@ -10,7 +10,7 @@ from typing import Union, Literal
         # Purpose: to convert Fahrenheit temperatures to Celsius
 
     # Both functions:
-        # Accept: str, int, float, list, tuple
+        # Accept: str, int, float, list, or tuple
         # Return: float, list, str (error)
 
 """"""
@@ -147,5 +147,5 @@ if __name__ == "__main__":
 #         # Output: [26.6667, 0.0, -12.2222]
 
 # # error
-#     print(celsius_to_fahrenheit("0s,1,2"))
+#     print(celsius_to_fahrenheit("0C,1,2"))
 #         # Output: Please provide a numeric Celsius temperature or a list of numeric Celsius temperatures
